@@ -1,0 +1,11 @@
+This program is an addon for a SRS learning program Anki, which you can find on http://ankisrs.net/ . It provides a more convenient way to change the number of new cards to learn and how many cards to review for multiple decks. 
+
+To install this program, you need to have Anki installed first. Then simply copy the New_and_max_cards.py to the addon folder inside your Anki profile. 
+
+The program adds the button New/Max Cards Configuration to Tools menu.
+
+You can also install this addon to copy the code 3179425861 to the Anki addon istaller. The Anki's page for this addon is on https://ankiweb.net/shared/info/3179425861 .
+
+The last change to this program was made on 18th of July 2014. It was to add the scrolling function for the people that use the huge amount of decks. 
+
+For any questions, complains or comments, you can reach me on sarajaksa@gmail.com .
