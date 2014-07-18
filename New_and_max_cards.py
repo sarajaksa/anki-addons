@@ -8,6 +8,11 @@ from aqt.qt import *
 from aqt.deckbrowser import DeckBrowser
 from aqt.deckconf import DeckConf
 
+class ScrollArea(QScrollArea):
+
+    def __init__(self):
+        super(ScrollArea, self).__init__()
+
 class ConfigurationWindow(QWidget):
 
     def __init__(self):
@@ -83,6 +88,7 @@ class ConfigurationWindow(QWidget):
             i += 1
         self.mw.onRefreshTimer()
         self.close()
+        mw.myWidget.close()
 
     #It checks, if this is the only deck, using this configuration
     def onlyDeckConfiguration(self, conf):
@@ -196,7 +202,9 @@ class ConfigurationWindow(QWidget):
             i += 1
 
 def confStart():
-    mw.myWidget = widget = ConfigurationWindow()
+    mw.myWidget = widget = ScrollArea()
+    conf = ConfigurationWindow()
+    widget.setWidget(conf)
     widget.show()
 
 action = QAction("New/Max Cards Configuration", mw)
