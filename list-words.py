@@ -165,6 +165,6 @@ class ListOfWords():
         
 #Menu item
 #################################
-action = QAction("Test", mw)
+action = QAction("Word List Generator", mw)
 mw.connect(action, SIGNAL("triggered()"), ListOfWords)
 mw.form.menuTools.addAction(action)
