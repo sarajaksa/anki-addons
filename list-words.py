@@ -37,7 +37,7 @@ class ListOfWords():
         self.webView = AnkiWebView()
         self.report.layout.addWidget(self.webView)
         
-        self.printButton = self.saveButton = QPushButton("Print List")
+        self.printButton = self.saveButton = QPushButton("Save List")
         self.printButton.pressed.connect(self.printWordList)
         
     def printWordList(self):
