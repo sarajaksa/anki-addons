@@ -28,17 +28,21 @@ def minusAnswers(self, ids):
     global current_number
     current_number = current_number - 1
     return None
+    
+def findMusicFiles(path):
+    musicFiles = []
+    for (path, dirs, files) in os.walk(path):
+        if files:
+            for f in files:
+                musicFiles.append(os.path.join(path, f))
+    return musicFiles
 
 def playTheReward(path):
     try:
-        for (path, dirs, files) in os.walk(path):
-            audioFiles = files
-            break
         audioFile = random.choice(audioFiles)
-        filePath = os.path.join(path, audioFile)
-        playMusic(filePath)
+        playMusic(audioFile)
     except:
-        print "The folder is not specificed"
+        print "The folder is not specificed. Is file " + audioFile + " an audio or a video?"
     return None
 
 def playMusic(filePath):
@@ -46,3 +50,5 @@ def playMusic(filePath):
 
 addHook("showQuestion", plusAnswers)
 addHook("remNotes", minusAnswers)
+
+audioFiles = findMusicFiles(audioPath)
