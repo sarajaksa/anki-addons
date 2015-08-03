@@ -1,0 +1,20 @@
+ANKI ADD-ON - WORDS HIGHLIGHTER
+
+This is an Anki add-on for highlighting the words. It checks the words in the external file, and changes their color. 
+
+Anki can be found on http://ankisrs.net/
+
+INSTALLING
+
+Put the words-highlighting.py in the anki add-on folder (Anki/addons). Create the additional csv file named words-highlighting.csv. This is the list of all the words that will change color. It format is word (lowercase) + tab + color (word or HEX).
+
+Example:
+anki	red
+knowledge	blue
+SRS	red
+
+USING
+
+In the Anki card browser, under the menu, there is a highlight words button (Edit > Highlight words). Pick the cards, that you want to change, and click on the button.
+
+In the addon file, you can change which field get checked, by changing the onlyFields variable. If you want only the Front field to get checked, and the rest of them to be left alone, then change the line to onlyFields = ["Front"]. The default (empty) means that all the fields get changed.
