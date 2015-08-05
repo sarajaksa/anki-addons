@@ -37,19 +37,20 @@ def removeAllHighlights(note, name, value):
 def addColor(note, name, text, wordsColor):
     lang = ""
     text = re.sub("<[^<]+?>", "", text)
-    if not unicodedata.category(text[0]) == "Lo":
-        text = text.split(" ")
-    else:
-        text = list(text)
-        lang = "jp"
-    for i, word in enumerate(text):
-        wordOnly = word.strip().rstrip(string.punctuation).lstrip(string.punctuation).lower()
-        if wordOnly in wordsColor:
-            text[i] = "<font class='highlight-words' color='" + wordsColor[wordOnly] + "'>" + word + '</font>'
-    if not lang == "jp":
-        note[name] = " " .join(text).strip()
-    else:
-        note[name] = "" .join(text).strip()
+    if text:
+        if not unicodedata.category(text[0]) == "Lo":
+            text = text.split(" ")
+        else:
+            text = list(text)
+            lang = "jp"
+        for i, word in enumerate(text):
+            wordOnly = word.strip().rstrip(string.punctuation).lstrip(string.punctuation).lower()
+            if wordOnly in wordsColor:
+                text[i] = "<font class='highlight-words' color='" + wordsColor[wordOnly] + "'>" + word + '</font>'
+        if not lang == "jp":
+            note[name] = " " .join(text).strip()
+        else:
+            note[name] = "" .join(text).strip()
     return None
 
 def highlightWords(browser):
