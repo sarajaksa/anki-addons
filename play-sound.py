@@ -12,7 +12,7 @@ import random
 #lenght of a cycle (after how many answers does the audio play)
 number = 5
 #Folder with Audios (add the path to the folder)
-audioPath = ""
+audioPath = []
 
 current_number = -1
 
@@ -29,7 +29,7 @@ def minusAnswers(self, ids):
     current_number = current_number - 1
     return None
     
-def findMusicFiles(path):
+def findMusicFilesFromPath(path):
     musicFiles = []
     for (path, dirs, files) in os.walk(path):
         if files:
@@ -37,12 +37,18 @@ def findMusicFiles(path):
                 musicFiles.append(os.path.join(path, f))
     return musicFiles
 
+def findMusicFiles(paths):
+    musicFiles = []
+    for path in paths:
+        musicFiles = musicFiles + findMusicFilesFromPath(path)
+    return musicFiles
+
 def playTheReward(path):
     try:
         audioFile = random.choice(audioFiles)
         playMusic(audioFile)
     except:
-        print "The folder is not specificed. Is file " + audioFile + " an audio or a video?"
+        print "Is file " + audioFile + " an audio or a video? (it might not be)"
     return None
 
 def playMusic(filePath):

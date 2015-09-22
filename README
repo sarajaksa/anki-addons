@@ -1,3 +1,14 @@
 ANKI ADD-ON - PLAYING SOUND AS REWARD
 
 This is an Anki add, that can play a sound as a reward after answering a specific number of cards.
+
+If you want to change the values:
+
+To change the number of cards to be shown, before the file is played (defult 5):
++ change the number in the line 13 (number = 5)
+
+To point to the folders with the files to be played:
++ Add them to the list on the line 15 (audioPath = [])
+Examples:
++ If the files are in folder /home/guest/audio -> audioPath = ["/home/guest/audio"]
++ If the files are in folder /home/guest/audio, /home/shared/audio and /home/mother/video -> audioPath = ["/home/guest/audio", "/home/shared/audio", "/home/mother/video"]
