@@ -3,7 +3,7 @@
 
 import re
 
-from aqt.editor import Editor
+from aqt.editor import Editor, _html
 from anki.hooks import wrap
 
 from aqt.qt import *
@@ -34,63 +34,47 @@ def addFonts(self):
         fontOptions.addItem(str(font))
     fontOptions.activated.connect(lambda: containerFont(self, fontOptions.currentText()))
     self.iconsBox.addWidget(fontOptions)
-
-def changeTextCase(text):
-    if text.isupper():
-        return text.lower()
-    return text.upper()
-    
-def changeFont(text, font):
-    return "<span style='font-family: " + font + ";'>" + text + "</span>"
-    
-def changeSize(text, size):
-    return "<span style='font-size: " + str(size) + "px;'>" + text + "</span>"
-    
-def findSelectedText(html, selection):
-    if selection in html:
-        return selection
-    text = selection
-    foundMatch = False
-    while not foundMatch:
-        if text in html:
-            foundMatch = True
-        else:
-            text = text[:-1]
-    start = html.find(text)
-    foundMatch = False
-    text = selection
-    while not foundMatch:
-        if text in html:
-            foundMatch = True
-        else:
-            text = text[1:]
-    end = html.find(text) + len(text)
-    html = html[start:end]
-    return html
-    
+   
 def containerSize(editor, size):
-    html = editor.note.fields[editor.currentField]
     selection = editor.web.selectedText()
-    selection = findSelectedText(html, selection)
-    replace = changeSize(selection, size)
-    text = html.replace(selection, replace)
-    saveChanges(editor, text)
-
-def containerCase(editor):
+    if not selection:
+        return
+    editor.web.eval("wrap('[spreminjanjevelikosti1]', '[spreminjanjevelikosti2]');")
     html = editor.note.fields[editor.currentField]
-    selection = editor.web.selectedText()
-    selection = findSelectedText(html, selection)
-    replace = changeTextCase(selection)
-    text = html.replace(selection, replace)
+    text = html.replace("[spreminjanjevelikosti1]", "<span style='font-size: " + str(size) + "px;'>")
+    text = text.replace("[spreminjanjevelikosti2]", "</span>")
     saveChanges(editor, text)
     
 def containerFont(editor, font):
     html = editor.note.fields[editor.currentField]
     selection = editor.web.selectedText()
-    selection = findSelectedText(html, selection)
-    replace = changeFont(selection, font)
-    text = html.replace(selection, replace)
+    if not selection:
+        return
+    editor.web.eval("wrap('[spreminjanjepisave1]', '[spreminjanjepisave2]');")
+    html = editor.note.fields[editor.currentField]
+    text = html.replace("[spreminjanjepisave1]", "<span style='font-family: " + font + ";'>")
+    text = text.replace("[spreminjanjepisave2]", "</span>")
     saveChanges(editor, text)
+
+def containerCase(editor):
+    selection = editor.web.selectedText()
+    if not selection:
+        return
+    editor.web.eval("wrap('[spreminjanjecrk1]', '[spreminjanjecrk2]');")
+    html = editor.note.fields[editor.currentField]
+    matching = r"\[spreminjanjecrk1\](.*?)\[spreminjanjecrk2\]"
+    selection = re.findall(matching, html)[0]
+    replace = changeTextCase(selection)
+    start = html.find("[spreminjanjecrk1]") + len("[spreminjanjecrk1]")
+    text = html[:start] + replace + html[start + len(replace):]
+    text = text.replace("[spreminjanjecrk1]", "")
+    text = text.replace("[spreminjanjecrk2]", "")
+    saveChanges(editor, text)
+    
+def changeTextCase(text):
+    if text.isupper():
+        return text.lower()
+    return text.upper()
     
 def saveChanges(editor, text):
     editor.note.fields[editor.currentField] = text
