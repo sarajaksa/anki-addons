@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 README
 
 The program in this files are different add-ons for ANKI, which is a SRS software ( http://ankisrs.net/ ).
@@ -41,6 +42,21 @@ NEW MAX CARDS
 This one provides a more convenient way to change the number of new cards to learn and how many cards to review for multiple decks. 
 
 The program adds the button New/Max Cards Configuration to Tools menu.
+
+REWARD SOUND
+
+This is an Anki add, This one plays a sound as a reward after answering a specific number of cards.
+
+If you want to change the values:
+
+To change the number of cards to be shown, before the file is played (defult 5):
++ change the number in the line 13 (number = 5)
+
+To point to the folders with the files to be played:
++ Add them to the list on the line 15 (audioPath = [])
+Examples:
++ If the files are in folder /home/guest/audio -> audioPath = ["/home/guest/audio"]
++ If the files are in folder /home/guest/audio, /home/shared/audio and /home/mother/video -> audioPath = ["/home/guest/audio", "/home/shared/audio", "/home/mother/video"]
 
 LICENCE
 
