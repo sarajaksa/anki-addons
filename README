@@ -1,4 +1,4 @@
-README
+﻿README
 
 The program in this files are different add-ons for ANKI, which is a SRS software ( http://ankisrs.net/ ).
 
@@ -7,9 +7,9 @@ INSTALLING
 Put the file in questions in the anki add-on folder (Anki/addons).
 DELETING DECKS CONFIGURATIONS
 
-This one provides a quick way to delete all the deck configurations that are currentlly not in use.
+This one provides a quick way to delete all the deck configurations that are currently not in use.
 
-ENGLISH WORD LOOKUP
+ENGLISH WORD LOOKUP (file words-lookup.py)
 
 This one is for looking up definitions of the English words. It looks up the word in one field and puts the definition in another field. Work with words only.
 
@@ -21,7 +21,7 @@ In order for it to work, there needs to be a dictionary.json file somewhere on t
 
 The program is using the json version of Webster's Unabridged English Dictionary. The project dealing with this can be found on https://github.com/adambom/dictionary
 
-WORDS HIGHLIGHTER
+WORDS HIGHLIGHTER (file Words_Highlighter.py)
 
 This one is for highlighting the words. It checks the words in the external file, and changes their color.
 
@@ -36,19 +36,19 @@ anki	red
 knowledge	blue
 SRS	red
 
-NEW MAX CARDS
+NEW MAX CARDS (file New_and_max_cards.py)
 
 This one provides a more convenient way to change the number of new cards to learn and how many cards to review for multiple decks. 
 
 The program adds the button New/Max Cards Configuration to Tools menu.
 
-REWARD SOUND
+REWARD SOUND (file reward_sound.py)
 
 This is an Anki add, This one plays a sound as a reward after answering a specific number of cards.
 
 If you want to change the values:
 
-To change the number of cards to be shown, before the file is played (defult 5):
+To change the number of cards to be shown, before the file is played (default 5):
 + change the number in the line 13 (number = 5)
 
 To point to the folders with the files to be played:
@@ -57,13 +57,29 @@ Examples:
 + If the files are in folder /home/guest/audio -> audioPath = ["/home/guest/audio"]
 + If the files are in folder /home/guest/audio, /home/shared/audio and /home/mother/video -> audioPath = ["/home/guest/audio", "/home/shared/audio", "/home/mother/video"]
 
-WORDLIST
+WORD LIST (file Word_Lists_Generator.py)
 
 This one lists the words in the deck.
 
-LICENCE
+HEISING STATS (heising_stats.py)
 
-This scripts are unlicensed (the licence found on http://unlicense.org/ ), except the dictionary.json file, which is licenced under the MIT licence (originally found on: https://github.com/adambom/dictionary ).
+This one provides the statistics of how many kanji were added and studied.
+
+TEXT BUTTONS (edit-buttons.py)
+
+This one adds additional buttons to the editing menu.
+
+DELETE REDUNDANT CONFIGURATIONS (file Deleting_Reduant_Configurations.py)
+
+This one goes over all the deck configurations and deletes all that are not in use but the original one.
+
+CLOZING TERMS (file clozing-terms.py)
+
+Finds all the instances of the phrase and make an additional cloze question out of it.
+
+LICENSE
+
+This scripts are unlicensed (the license found on http://unlicense.org/ ), except the dictionary.json file, which is licensed under the MIT license (originally found on: https://github.com/adambom/dictionary ).
 
 CONTACT
 
