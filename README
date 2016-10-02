@@ -1,3 +1,30 @@
-This program is an addon for a SRS learning program Anki, which you can find on http://ankisrs.net/ . It provides a quick way to delete all the deck configurations that are currentlly not in use.
+README
+
+The program in this files are different add-ons for ANKI, which is a SRS software ( http://ankisrs.net/ ).
+
+INSTALLING
+
+Put the file in questions in the anki add-on folder (Anki/addons).
+DELETING DECKS CONFIGURATIONS
+
+This one provides a quick way to delete all the deck configurations that are currentlly not in use.
+
+ENGLISH WORD LOOKUP
+
+This one is for looking up definitions of the English words. It looks up the word in one field and puts the definition in another field. Work with words only.
+
+The words-lookup.py file tell the program which field to check for word (line 12) and where to put the definition (line 14). 
+
+When in Anki, open the Browse window. Highlight the cards that you want to check. Under menu Edit, there is a button generate meaning. Click it. If the word was in the dictionary, the definition is posted in appropriate field.
+
+In order for it to work, there needs to be a dictionary.json file somewhere on the disk. In the file, on line 16, write in the location of the dictionary.json file.
+
+The program is using the json version of Webster's Unabridged English Dictionary. The project dealing with this can be found on https://github.com/adambom/dictionary
+
+LICENCE
+
+This scripts are unlicensed (the licence found on http://unlicense.org/ ), except the dictionary.json file, which is licenced under the MIT licence (originally found on: https://github.com/adambom/dictionary ).
+
+CONTACT
 
 For any questions, complains or comments, you can reach me on sarajaksa@gmail.com .
