@@ -36,6 +36,12 @@ anki	red
 knowledge	blue
 SRS	red
 
+NEW MAX CARDS
+
+This one provides a more convenient way to change the number of new cards to learn and how many cards to review for multiple decks. 
+
+The program adds the button New/Max Cards Configuration to Tools menu.
+
 LICENCE
 
 This scripts are unlicensed (the licence found on http://unlicense.org/ ), except the dictionary.json file, which is licenced under the MIT licence (originally found on: https://github.com/adambom/dictionary ).
