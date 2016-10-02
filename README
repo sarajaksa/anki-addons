@@ -21,6 +21,21 @@ In order for it to work, there needs to be a dictionary.json file somewhere on t
 
 The program is using the json version of Webster's Unabridged English Dictionary. The project dealing with this can be found on https://github.com/adambom/dictionary
 
+WORDS HIGHLIGHTER
+
+This one is for highlighting the words. It checks the words in the external file, and changes their color.
+
+In the Anki card browser, under the menu, there is a highlight words button (Edit > Highlight words). Pick the cards, that you want to change, and click on the button.
+
+In the addon file, you can change which field get checked, by changing the onlyFields variable. If you want only the Front field to get checked, and the rest of them to be left alone, then change the line to onlyFields = ["Front"]. The default (empty) means that all the fields get changed.
+
+For it to work, you need an additional csv file named words-highlighting.csv. This is the list of all the words that will change color. It format is word (lowercase) + tab + color (word or HEX).
+
+Example:
+anki	red
+knowledge	blue
+SRS	red
+
 LICENCE
 
 This scripts are unlicensed (the licence found on http://unlicense.org/ ), except the dictionary.json file, which is licenced under the MIT licence (originally found on: https://github.com/adambom/dictionary ).
