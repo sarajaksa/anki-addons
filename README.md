@@ -54,9 +54,10 @@ To change the number of cards to be shown, before the file is played (default 5)
 To point to the folders with the files to be played:
 + Add them to the list on the line 15 (audioPath = [])
 Examples:
-+ If the files are in folder /home/guest/audio -> audioPath = ["/home/guest/audio"] (Linux)
-+ If files are in the folder E:\Dropbox\Music -> audioPath = ["E:\Dropbox\Music"] (Windows)
-+ If the files are in folder /home/guest/audio, /home/shared/audio and /home/mother/video -> audioPath = ["/home/guest/audio", "/home/shared/audio", "/home/mother/video"]
+
+    If the files are in folder /home/guest/audio -> audioPath = ["/home/guest/audio"] (Linux)
+    If files are in the folder E:\Dropbox\Music -> audioPath = ["E:\Dropbox\Music"] (Windows)
+    If the files are in folder /home/guest/audio, /home/shared/audio and /home/mother/video -> audioPath = ["/home/guest/audio", "/home/shared/audio", "/home/mother/video"]
 
 ## WORD LIST (file Word_Lists_Generator.py)
 
