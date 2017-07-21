@@ -42,7 +42,7 @@ class ListOfWords():
         
     def printWordList(self):
         filename = QFileDialog.getSaveFileName()
-        with codecs.open(filename, "wt", encoding="utf-8") as file:
+        with open(filename[0], "wt") as file:
             file.write(self.words)
         return filename   
         
@@ -165,6 +165,7 @@ class ListOfWords():
         
 #Menu item
 #################################
-action = QAction("Word List Generator", mw)
-mw.connect(action, SIGNAL("triggered()"), ListOfWords)
-mw.form.menuTools.addAction(action)
+mw.action = QAction("Word List Generator", mw)
+mw.action.triggered.connect(ListOfWords)
+mw.form.menuTools.addAction(mw.action)
+
