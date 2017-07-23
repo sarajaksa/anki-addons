@@ -73,6 +73,6 @@ def confStart():
 	deletion = ConfigurationDeletions()
 	deletion.start()
 
-action = QAction("Delete Reduant Configurations", mw)
-mw.connect(action, SIGNAL("triggered()"), confStart)
-mw.form.menuTools.addAction(action)
+mw.action = QAction("Delete Reduant Configurations", mw)
+mw.action.triggered.connect(confStart)
+mw.form.menuTools.addAction(mw.action)
