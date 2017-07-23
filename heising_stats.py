@@ -102,8 +102,10 @@ class HeisingList():
         return string
 
     def kanjiLists(self):
-        new = self.kanjiList("mid:1342697798281 is:new")
-        old = self.kanjiList("mid:1342697798281 -is:new")
+        new = self.kanjiList("mid:1432286497707 is:new")
+        new = set("".join(new))
+        old = self.kanjiList("mid:1432286497707 -is:new")
+        old = set("".join(old))
         return new, old
         
     def kanjiList(self, searchTerm):
@@ -117,6 +119,6 @@ class HeisingList():
 
 #Menu item
 #################################
-action = QAction("Heising Stats", mw)
-mw.connect(action, SIGNAL("triggered()"), HeisingList)
-mw.form.menuTools.addAction(action)
+mw.action = QAction("Heising Stats", mw)
+mw.action.triggered.connect(HeisingList)
+mw.form.menuTools.addAction(mw.action)
