@@ -60,7 +60,7 @@ class ConfigurationWindow(QWidget):
         self.appendGrid(i)
         self.labels[(i, 4)] = QPushButton("Save")
         self.layout.addWidget(self.labels[(i,4)], self.grid[i*5+4][0], self.grid[i*5+4][1])
-        QObject.connect(self.labels[(i, 4)], SIGNAL("pressed()"), self.saveConfiguration)
+        self.labels[(i,4)].pressed.connect(self.saveConfiguration)
 
     #get configuration from known id
     def getConfigurationFromId(self, id):
@@ -207,6 +207,6 @@ def confStart():
     widget.setWidget(conf)
     widget.show()
 
-action = QAction("New/Max Cards Configuration", mw)
-mw.connect(action, SIGNAL("triggered()"), confStart)
-mw.form.menuTools.addAction(action)
+mw.action = QAction("New/Max Cards Configuration", mw)
+mw.action.triggered.connect(confStart)
+mw.form.menuTools.addAction(mw.action)
