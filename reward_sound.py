@@ -10,7 +10,7 @@ import os
 import random
 
 #lenght of a cycle (after how many answers does the audio play)
-number = 5
+number = 3
 #Folder with Audios (add the path to the folder)
 audioPath = []
 
@@ -48,7 +48,7 @@ def playTheReward(path):
         audioFile = random.choice(audioFiles)
         playMusic(audioFile)
     except:
-        print "Is file " + audioFile + " an audio or a video? (it might not be)"
+        print("Is file " + audioFile + " an audio or a video? (it might not be)")
     return None
 
 def playMusic(filePath):
