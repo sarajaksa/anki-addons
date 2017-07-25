@@ -13,7 +13,7 @@ fromFieldName = "Front"
 #The name of the field where you want definition
 toFieldName = "Back"
 #Place of the dictionary file
-dictinaryFile = "Anki/addons/dictionary.json"
+dictinaryFile = "../../addons21/dictionary.json"
 
 def testFunction(editor):
     englishDictionary = getDictionary(dictinaryFile)
@@ -39,8 +39,8 @@ def getDefenition(word, dictionary):
         return None
 
 def addMenu(editor):
-	a = QAction("Generate Meaning", editor)
-	editor.form.menuEdit.addAction(a)
-	editor.connect(a, SIGNAL("triggered()"), lambda e=editor: testFunction(e))
+    editor.a = QAction("Generate Meaning", editor)
+    editor.a.triggered.connect(lambda: testFunction(editor))
+    editor.form.menuEdit.addAction(editor.a)
 
 addHook("browser.setupMenus", addMenu)
