@@ -24,7 +24,7 @@ def getWordList(wordList):
     with codecs.open(wordList, "r") as coloredWordList:
         coloredWordList = csv.reader(coloredWordList, delimiter='\t', quotechar='|')
         for row in coloredWordList:
-            wordsColor[row[0].decode("utf-8")] = row[1]
+            wordsColor[row[0]] = row[1]
     return wordsColor
 
 def removeAllHighlights(note, name, value):
@@ -67,12 +67,11 @@ def highlightWords(browser):
                 addColor(note, name, value, wordsColor)
         note.flush()
     mw.reset()
-    return None
     
 def addMenu(browser):
-    button = QAction("Highlight words", browser)
-    browser.connect(button, SIGNAL("triggered()"), lambda b=browser: highlightWords(b))
-    browser.form.menuEdit.addAction(button)
+    browser.button = QAction("Highlight words", browser)
+    browser.button.triggered.connect(lambda: highlightWords(browser))
+    browser.form.menuEdit.addAction(browser.button)
 
 addHook("browser.setupMenus", addMenu)
 #The word list with colors (csv file, first row=word, second row=color - name or HEX, seperator is tab). If file is named differently, then put the name of the file as the function argument (if name="lalala.csv", then csvName("lalala.csv")). It assumes that file is in the same folder than addons. If on different place, put the absolute path there instead
