@@ -14,7 +14,7 @@ import string
 
 def addMenu(browser):
     button = QAction("Clozing specifics terms", browser)
-    browser.connect(button, SIGNAL("triggered()"), lambda b=browser: ClozingWords(b))
+    button.triggered.connect(lambda: ClozingWords(browser))
     browser.form.menuEdit.addAction(button)
 
 class ClozingWords(QWidget):
